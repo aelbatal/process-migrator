@@ -419,7 +419,8 @@ export class ProcessImporter {
             }
             catch (error) {
                 Utility.handleKnownError(error);
-                throw new ImportError(`Unable to create/hide/update state '${sourceState.name}' in '${witStateEntry.workItemTypeRefName}' work item type, see logs for details`);
+				logger.logError(`Unable to create/hide/update state '${sourceState.name}' in '${witStateEntry.workItemTypeRefName}' work item type, see logs for details`);
+                //throw new ImportError(`Unable to create/hide/update state '${sourceState.name}' in '${witStateEntry.workItemTypeRefName}' work item type, see logs for details`);
             }
         }
 
@@ -431,7 +432,8 @@ export class ProcessImporter {
                         `Delete state '${targetState.name}' in '${witStateEntry.workItemTypeRefName}' work item type`);
                 }
                 catch (error) {
-                    throw new ImportError(`Unable to delete state '${targetState.name}' in '${witStateEntry.workItemTypeRefName}' work item type, see logs for details`);
+				logger.logError(`Unable to delete state '${targetState.name}' in '${witStateEntry.workItemTypeRefName}' work item type, see logs for details`);
+                    //throw new ImportError(`Unable to delete state '${targetState.name}' in '${witStateEntry.workItemTypeRefName}' work item type, see logs for details`);
                 }
             }
         }
